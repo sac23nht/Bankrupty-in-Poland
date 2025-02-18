@@ -1,10 +1,17 @@
-# Random Forest Modeling of Poland Bankruptcy Data
-This Jupyter notebook demonstrates the Random Forest modeling of the Poland bankruptcy data. During the exploratory data analysis (EDA) phase, it was discovered that the data was imbalanced. To address this issue, both over and under-sampling resampling methods were attempted to see which would perform better for the model. Ultimately, the over-sampling method was chosen, as too much data was being discarded with under-sampling.
+# Gradient Boosting Modeling of the Poland Bankruptcy Dataset
+This notebook demonstrates the implementation of Gradient Boosting as an ensemble model to predict bankruptcy in the Poland bankruptcy dataset.
 
-Given the imbalanced nature of the data, the training baseline was found to be quite high. Three identical models were then created: model_reg, model_under, and model_over. Each model utilized a SimpleImputer followed by a DecisionTreeClassifier. model_reg was trained using the unaltered training data, model_under was trained using the undersampled data, and model_over was trained using the oversampled data.
+Gradient Boosting is an ensemble model that combines the predictions of multiple weak learners (usually decision trees) to create a stronger model. It is an iterative process that trains new weak learners on the residual errors of the previous learners. The final prediction is the weighted sum of all the weak learners.
 
-A confusion matrix was then added to assess the performance of each model. Finally, a bar chart was generated to identify the most important features (all of which are listed in the data dictionary). The model was then saved.
+# Data Preprocessing
+The first step was to split the dataset into testing and training sets. The training set was used to train the model, while the testing set was used to evaluate the model's performance.
 
+Next, I used the oversampling technique to address the class imbalance issue in the dataset.
 
-The notebook is structured in a way that's easy to follow and understand with notes to explain each step taken properly.
+# Model Creation
+In the iterative section, a Gradient Boosting Classifier was created using a Simple Imputer transformer and Gradient Boosting Classifier predictor. After some hyperparameter tuning, the model was created using the classifier and hyperparameter grid.
 
+Cross-validation results were extracted from the model and used to create a DataFrame. The best hyperparameters were extracted, and the training and validation accuracy scores were evaluated.
+
+# Evaluation
+Finally, I evaluated the model's performance using a confusion matrix and classification report. An interactive dashboard was also created to visualize the model's predictions.
